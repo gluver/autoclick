@@ -4,11 +4,12 @@ A fast left auto-clicking application that can be activated via keyboard shortcu
 
 ## Features
 
-- **Fast Auto-Clicking**: Performs left clicks at 100 clicks per second
-- **Keyboard Shortcut**: Press `F1` to start/stop auto-clicking
+- **Adjustable Speed**: Configurable click speed from 1-100 clicks per second
+- **Keyboard Shortcut**: Press `Ctrl+Alt+K` to start/stop auto-clicking
 - **Instant Cancel**: Right-click anywhere to stop clicking immediately
 - **Position Lock**: Clicks at the cursor position when activated
-- **Simple GUI**: Easy-to-use interface with status display
+- **Simple GUI**: Easy-to-use interface with speed control and status display
+- **Standalone Executable**: Available as a self-contained .exe file
 
 ## Installation
 
@@ -38,26 +39,36 @@ A fast left auto-clicking application that can be activated via keyboard shortcu
 
 2. A GUI window will appear with instructions
 
-3. **To start auto-clicking**:
-   - Position your cursor where you want to click
-   - Press `F1` to start auto-clicking at that position
+3. **To adjust click speed**:
+   - Use the speed slider in the GUI to set clicks per second (1-100)
+   - Default speed is 20 clicks per second
 
-4. **To stop auto-clicking**:
-   - Press `F1` again, OR
+4. **To start auto-clicking**:
+   - Position your cursor where you want to click
+   - Press `Ctrl+Alt+K` to start auto-clicking at that position
+   - OR click the "Start Auto-Click" button in the GUI
+
+5. **To stop auto-clicking**:
+   - Press `Ctrl+Alt+K` again, OR
+   - Click the "Stop" button in the GUI, OR
    - Right-click anywhere on the screen
 
 ## Controls
 
-- **F1**: Toggle auto-clicking on/off
+- **Ctrl+Alt+K**: Toggle auto-clicking on/off
+- **Start Auto-Click button**: Begin auto-clicking (GUI)
+- **Stop button**: Stop auto-clicking (GUI)
+- **Speed slider**: Adjust click speed (1-100 clicks/sec)
 - **Right-click**: Instantly stop auto-clicking
 - **Exit button**: Close the application
 
 ## Important Notes
 
 - Keep the GUI window open while using the auto-clicker
-- The application will click at the cursor position when F1 is first pressed
+- The application will click at the cursor position when Ctrl+Alt+K is first pressed
 - Right-click will stop clicking immediately, regardless of where you click
-- The clicking rate is set to 100 clicks per second (very fast)
+- The clicking rate is adjustable from 1-1000 clicks per second (default: 20)
+- Higher speeds may cause system instability - use with caution
 
 ## Safety
 
@@ -67,6 +78,17 @@ A fast left auto-clicking application that can be activated via keyboard shortcu
 
 ## Troubleshooting
 
-- If the application doesn't respond to F1, make sure it has focus or try running as administrator
+- If the application doesn't respond to Ctrl+Alt+K, make sure it has focus or try running as administrator
 - If clicks aren't registering, ensure the target application accepts programmatic clicks
 - On some systems, you may need to run the application with elevated privileges
+- For the standalone executable (autoclick.exe), no Python installation is required
+
+## Compilation
+
+To create a standalone executable:
+```bash
+pip install nuitka
+python -m nuitka --standalone --onefile --windows-console-mode=disable --enable-plugin=tk-inter autoclick.py
+```
+
+This will create `autoclick.exe` - a self-contained executable that runs without Python installation.
